@@ -21,7 +21,7 @@ def guesses(replicatsCRTG, replicatsCRT2617, n_genes, n_replicats, times) :
     for g in range(n_genes): # g goes from 0 to n_genes-1
         xdata = times[3:9] - times[3]
         ydataRT = replicatsCRTG[0, :, 3:9, g]
-        ydataRT[2, 1] = np.nanmean(ydataRT[ :, 1]) # on se prémunit d'un NAN en faisant la moyenne sur les réplicats
+        ydataRT[2, 1] = np.nanmean(ydataRT[ :, 1]) # watch out for a NAN by taking a mean over the replicats
 #        print('ydata.shape', ydata.shape)
 #        print('ydata', ydata)
         popt = np.zeros(7)

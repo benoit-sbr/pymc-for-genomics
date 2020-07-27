@@ -75,20 +75,20 @@ with pm.Model() as Basic_model:
 
     # Expected value of outcome
     mu0 = np.nanmean(replicatsCRTG[ : , : , 0, : ], axis=(0, 1))
-    print('mu0', mu0.shape)
+#    print('mu0', mu0.shape)
     mu = theory[ : , : , :n_genes_under_TF_control , 0]
-    print('mu', mu.shape)
+#    print('mu', mu.shape)
     mu_flat = mu.flatten()
-    print('mu_flat', mu_flat.shape)
+#    print('mu_flat', mu_flat.shape)
 
     # Likelihood (sampling distribution) of observations
     sigma = pm.Normal('sigma', sd = 1., shape = (n_conditions * (n_timesteps-n_ignored_timesteps) * n_genes_under_TF_control))
     measures = replicatsRCTG
     measures_flat = measures.reshape(measures.shape[0], -1)
-    print('measures', measures.shape)
-    print('measures_flat', measures_flat.shape)
+#    print('measures', measures.shape)
+#    print('measures_flat', measures_flat.shape)
     Y_obs = pm.Normal('Y_obs', mu = mu_flat, sd = sigma, observed = measures_flat)
 
     # Draw posterior samples
-    trace = pm.sample( init='adapt_diag')
+    trace = pm.sample(init='adapt_diag')
 

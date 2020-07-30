@@ -46,7 +46,7 @@ def expression(times, mu0, alpha, beta, gamma, delta, eta):
 #    print('mu0.shape', mu0.shape)
 #    print('alpha_new.shape', alpha_new.shape)
     times_new = times[np.newaxis, :, np.newaxis, np.newaxis]
-    print('times_new.shape', times_new.shape)
+#    print('times_new.shape', times_new.shape)
 #    print('.shape', .shape)
 #    print('.shape', .shape)
     half1st = (mu0 - alpha_new/delta_new) * np.exp(-delta_new*times_new) + alpha_new/delta_new
